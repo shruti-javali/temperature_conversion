@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 300px;
+            width: 300px;
+            border: 2px solid black;
+            margin-left: 30%;
+            margin-top: 10%;
+            padding: 25px;
+            text-align: center;
+           box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+           border-radius: 5px;
+        }
+        #celsius,#fahrenheit,#result{
+            width: 100%;
+            margin: 8px 0;
+            padding: 5px;
+            text-align: center;
+            border-radius: 5px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    <h3> Unit conversion of Temperature:</h3>
+    <form id="my_form1">
+        <label>&deg Celsius:</label>
+        <input type="number" id="celsius" name="celsius"> 
+        <label>&deg Fahrenheit:</label>
+        <input type="number" id="fahrenheit" name="fahrenheit"><br /><br />
+
+        <input type="button" onclick="handle1()" value="Convert"><br /><br />
+        <input type="text" id="result" name="result" placeholder="Result">
+    </form>
+</div>
+    <br />
+    <br />
+    
+    
+
+    <script>
+        function handle1() {
+            let x = document.getElementById("celsius").value;
+            let y = document.getElementById("fahrenheit").value;
+
+
+
+            if (x.length == 0 && y.length == 0) {
+                document.getElementById("result").value = '**Input cannot be blank';
+            }
+            else if (x.length != 0) {
+                document.getElementById("fahrenheit").disabled = true;
+                let celsius = x * 9 / 5 + 32;
+                document.getElementById("result").value = celsius + '\u00B0' + 'F';
+            }
+
+            else {
+                document.getElementById("celsius").disabled = true;
+                let fahrenheit = (y - 32) * 5 / 9;
+                document.getElementById("result").value = fahrenheit + '\u00B0' + 'C';
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
